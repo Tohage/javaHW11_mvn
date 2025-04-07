@@ -29,7 +29,7 @@ public class TodosTest {
     }
 
     @Test
-    public void shouldFindTaskByQuery() {
+    public void shouldFindOneTaskByQuery() {
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
         String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
@@ -48,8 +48,8 @@ public class TodosTest {
         todos.add(epic);
         todos.add(meeting);
 
-        Task[] expected = {epic};
-        Task[] actual = todos.search("Хлеб");
+        Task[] expected = {simpleTask};
+        Task[] actual = todos.search("Позвонить");
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -74,7 +74,7 @@ public class TodosTest {
         todos.add(meeting);
 
         Task[] expected = {};
-        Task[] actual = todos.search("тест");
+        Task[] actual = todos.search("Нет задач");
         Assertions.assertArrayEquals(expected, actual);
     }
 
